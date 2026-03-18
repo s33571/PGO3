@@ -15,7 +15,7 @@ public class Biblioteka {
         }
     }
     public void wypiszDostepneKsiazki() {
-        System.out.println("--- Dostepne ksiazki w bibliotece ---");
+        System.out.println("Dostepne ksiazki w bibliotece");
         for (int i = 0; i < liczbaKsiazek; i++) {
             if (ksiazki[i].isDostepna()) {
                 ksiazki[i].wypiszInfo();
@@ -44,5 +44,35 @@ public class Biblioteka {
             }
         }
         return licznik;
+    }
+    public void wypozyczKsiazke(String tytul, Czytelnik czytelnik) {
+        for (int i = 0; i < liczbaKsiazek; i++) {
+            if (ksiazki[i].getTytul().equals(tytul)) {
+                if (ksiazki[i].isDostepna()) {
+                    ksiazki[i].wypozycz();
+                    czytelnik.zwiekszLiczbeWypozyczen();
+                    System.out.println("Operacja udana: Czytelnik wypozyczyl ksiazke.");
+                } else {
+                    System.out.println("Blad: Ksiazka jest juz wypozyczona.");
+                }
+                return;
+            }
+        }
+        System.out.println("Nie znaleziono ksiazki w bibliotece.");
+    }
+    public void zwrocKsiazke(String tytul, Czytelnik czytelnik) {
+        for (int i = 0; i < liczbaKsiazek; i++) {
+            if (ksiazki[i].getTytul().equals(tytul)) {
+                if (!ksiazki[i].isDostepna()) {
+                    ksiazki[i].zwroc();
+                    czytelnik.zmniejszLiczbeWypozyczen();
+                    System.out.println("Operacja udana: Czytelnik zwrocil ksiazke.");
+                } else {
+                    System.out.println("Blad: Ta ksiazka nie byla wypozyczona.");
+                }
+                return;
+            }
+        }
+        System.out.println("Nie znaleziono ksiazki w bibliotece.");
     }
 }

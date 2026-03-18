@@ -26,9 +26,19 @@ public class Main {
         biblioteka.dodajKsiazke(k3);
         System.out.println();
         biblioteka.wypiszDostepneKsiazki();
-        System.out.println("\nSzukamy ksiazki 'Solaris':");
+        System.out.println("Szukamy ksiazki 'Solaris':");
         biblioteka.znajdzKsiazkePoTytule("Solaris");
         int dostepne = biblioteka.policzDostepneKsiazki();
-        System.out.println("\nLaczna liczba dostepnych ksiazek: " + dostepne);
+        System.out.println("Laczna liczba dostepnych ksiazek: " + dostepne);
+        System.out.println("Stan poczatkowy dostepnych ksiazek:");
+        biblioteka.wypiszDostepneKsiazki();
+        System.out.println("Jan probuje wypozyczyc 'Wiedzmin':");
+        biblioteka.wypozyczKsiazke("Wiedzmin", c1);
+        System.out.println("Stan dostepnych po wypozyczeniu:");
+        biblioteka.wypiszDostepneKsiazki();
+        System.out.println("Jan probuje zwrocic 'Wiedzmin':");
+        biblioteka.zwrocKsiazke("Wiedzmin", c1);
+        System.out.println("Stan dostepnych na koniec:");
+        biblioteka.wypiszDostepneKsiazki();
     }
 }
