@@ -32,4 +32,10 @@ public class Ksiazka {
             System.out.println("Ksiazka '" + tytul + "' nie byla wypozyczona (jest w bibliotece).");
         }
     }
+    public String getTytul(){
+        return tytul;
+    }
+    public boolean isDostepna(){
+        return dostepna;
+    }
 }

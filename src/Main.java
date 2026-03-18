@@ -20,5 +20,15 @@ public class Main {
         System.out.println("Stan czytelnikow po wypozyczeniach:");
         c1.wypiszDane();
         c2.wypiszDane();
+        Biblioteka biblioteka = new Biblioteka(5);
+        biblioteka.dodajKsiazke(k1);
+        biblioteka.dodajKsiazke(k2);
+        biblioteka.dodajKsiazke(k3);
+        System.out.println();
+        biblioteka.wypiszDostepneKsiazki();
+        System.out.println("\nSzukamy ksiazki 'Solaris':");
+        biblioteka.znajdzKsiazkePoTytule("Solaris");
+        int dostepne = biblioteka.policzDostepneKsiazki();
+        System.out.println("\nLaczna liczba dostepnych ksiazek: " + dostepne);
     }
 }
